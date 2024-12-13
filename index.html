@@ -1,112 +1,26 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Ajax Examples</title>
-    <style>
-         body {
-  background-image: url('img.jpg');
-      }
-    
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #57e5f1;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px 0;
-        }
-        button:hover {
-            background-color: #1082fc;
-        }
-        .output {
-            margin: 20px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background: #f8afaf;
-        }
-    </style>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <marquee>Ajax Web Page</marquee>
-    <div class="container">
-        <h1>Ajax Examples</h1>
-        
-        <h2>a. JavaScript `ajax()` Request</h2>
-        <button onclick="loadDoc()">Load Text (Jscript) </button>
-        <div class="output" id="outputJS">Text content will be loaded here.</div> 
-
-        <h2>b. jQuery `ajax()` Request</h2>
-        <button id="loadTextJQuery">Load Text (jQuery)</button>
-        <div id="outputJQuery" class="output">Text content will be loaded here.</div>
-
-        <h2>c. Using `getJSON()`in jQuery</h2>
-        <button id="loadJSONJQuery">Load JSON Data</button>
-        <div id="outputJSONJQuery" class="output">JSON data will be loaded here.</div>
-
-        <h2>d. Using `parseJSON()`</h2>
-        <button id="loadJSONParse">Parse JSON Data</button>
-        <div id="outputJSONParse" class="output">Parsed JSON data will be displayed here.</div>
- 
-        
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // a. AJAX using JavaScript
-        function loadDoc() {
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function() {
-                document.getElementById("outputJS").innerHTML = this.responseText;
-            }
-            xhttp.open("GET","example10.txt");
-            xhttp.send();
-        }
-         // b. AJAX using jQuery's ajax() method
-         $('#loadTextJQuery').click(function () {
-            $.ajax({
-            url: 'example10.txt', // Specify the text file to load
-            method: 'GET',
-            success: function (data) {
-                $('#outputJQuery').text(data);
-                },
-            error: function () {
-                $('#outputJQuery').text('Failed to load content.');
-            }
-            });
-        });
-
-         // c. Using getJSON() to load JSON data
-         $('#loadJSONJQuery').click(function () {
-            $.getJSON('example10.json', function (data) {
-                let output = '<ul>';
-                data.forEach(function (item) {
-                    output += `<li>${item.name} - ${item.usn}</li>`;
-                });
-            output += '</ul>';
-            $('#outputJSONJQuery').html(output);
-            });
-        });
-
-         // d. Using parseJSON() to parse JSON data
-         $('#loadJSONParse').click(function () {
-            const jsonString = '{"students":[{"name":"Hulk","age":64},{"name":"Thor","age":65}]}';
-            const parsedData = $.parseJSON(jsonString);
-            let output = '<ul>';
-            parsedData.students.forEach(function (student) {
-                output += `<li>${student.name} - ${student.age}</li>`;
-            });
-            output += '</ul>';
-            $('#outputJSONParse').html(output);
-        });
- 
- 
-       
-    </script>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="bio.html">Bio-data</a>
+        </nav>
+    </header>
+    <main>
+        <h2>About Me</h2>
+        <p>Hi, I'm [Your Name]. Welcome to my personal website!</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+    </footer>
 </body>
 </html>
